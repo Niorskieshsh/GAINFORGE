@@ -98,7 +98,8 @@ body::before {
 }
 
 .product:hover {
-    transform: translateY(-5px);
+    transform: translateY(-8px);
+    box-shadow: 0 12px 24px rgba(18, 245, 6, 0.859);
 }
 
 .product img {
@@ -123,8 +124,8 @@ body::before {
     display: block;
     text-align: center;
     padding: 10px;
-    background: #294d9c;
-    color: white;
+    background: #0cc816;
+    color: rgb(0, 0, 0);
     text-decoration: none;
     border-radius: 8px;
 }
