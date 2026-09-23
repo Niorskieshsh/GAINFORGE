@@ -1,0 +1,562 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Checkout | GAINFORGE</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="checkout-style.css">
+
+
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav>
+
+    <a href="index.html">
+        <img src="logo2.png" id="logo">
+    </a>
+
+    <div class="nav-links">
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="cart.html" class="cart">
+            🛒 CART
+            <span id="cart-count">0</span>
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     CHECKOUT PAGE
+========================= -->
+
+<div class="checkout-container" id="checkout-page">
+
+    <h1 class="page-title">
+        CHECKOUT
+    </h1>
+
+
+    <div class="checkout-grid">
+
+
+        <!-- =====================
+             CUSTOMER INFORMATION
+        ====================== -->
+
+        <div class="checkout-box">
+
+            <h2>
+                DELIVERY INFORMATION
+            </h2>
+
+
+            <form id="checkout-form">
+
+
+                <div class="form-group">
+
+                    <label>
+                        Full Name
+                    </label>
+
+                    <input
+                        type="text"
+                        id="full-name"
+                        placeholder="Enter your full name"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Email Address
+                    </label>
+
+                    <input
+                        type="email"
+                        id="email"
+                        placeholder="Enter your email"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Phone Number
+                    </label>
+
+                    <input
+                        type="tel"
+                        id="phone"
+                        placeholder="09XXXXXXXXX"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Delivery Address
+                    </label>
+
+                    <textarea
+                        id="address"
+                        placeholder="House number, street, barangay"
+                        required
+                    ></textarea>
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        City / Municipality
+                    </label>
+
+                    <input
+                        type="text"
+                        id="city"
+                        placeholder="Enter your city or municipality"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Province
+                    </label>
+
+                    <input
+                        type="text"
+                        id="province"
+                        placeholder="Enter your province"
+                        required
+                    >
+
+                </div>
+
+
+
+                <div class="form-group">
+
+                    <label>
+                        Payment Method
+                    </label>
+
+                    <select id="payment" required>
+
+                        <option value="">
+                            Select payment method
+                        </option>
+
+                        <option value="COD">
+                            Cash on Delivery
+                        </option>
+
+                        <option value="GCash">
+                            GCash
+                        </option>
+
+                        <option value="Bank Transfer">
+                            Bank Transfer
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+            </form>
+
+        </div>
+
+
+
+        <!-- =====================
+             ORDER SUMMARY
+        ====================== -->
+
+        <div class="checkout-box">
+
+            <h2>
+                YOUR ORDER
+            </h2>
+
+
+            <div id="order-items">
+                <!-- Products appear here -->
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Subtotal
+                </span>
+
+                <span id="subtotal">
+                    ₱0
+                </span>
+
+            </div>
+
+
+            <div class="summary-row">
+
+                <span>
+                    Shipping
+                </span>
+
+                <span>
+                    FREE
+                </span>
+
+            </div>
+
+
+            <div class="summary-row total">
+
+                <span>
+                    TOTAL
+                </span>
+
+                <span
+                    class="total-price"
+                    id="total"
+                >
+                    ₱0
+                </span>
+
+            </div>
+
+
+            <button
+                type="submit"
+                form="checkout-form"
+                class="place-order"
+            >
+                PLACE ORDER
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     SUCCESS
+========================= -->
+
+<div
+    class="success-message"
+    id="success-message"
+>
+
+    <h1>
+        ORDER PLACED ✓
+    </h1>
+
+    <p>
+        Thank you for your order!
+        Your GAINFORGE order has been successfully placed.
+    </p>
+
+    <p>
+        We will process your order and prepare it for delivery.
+    </p>
+
+    <a href="index.html">
+        BACK TO HOME
+    </a>
+
+</div>
+
+
+
+<script>
+
+/* =========================
+   CART FUNCTIONS
+========================= */
+
+function getCart() {
+
+    return JSON.parse(
+        localStorage.getItem("gainforgeCart")
+    ) || [];
+
+}
+
+
+function updateCartCount() {
+
+    const cart = getCart();
+
+    let totalItems = 0;
+
+
+    cart.forEach(function(item) {
+
+        totalItems += item.quantity;
+
+    });
+
+
+    document.getElementById("cart-count").textContent =
+        totalItems;
+
+}
+
+
+/* =========================
+   DISPLAY ORDER
+========================= */
+
+function displayOrder() {
+
+    const cart = getCart();
+
+    const orderItems =
+        document.getElementById("order-items");
+
+
+    let subtotal = 0;
+
+
+    if (cart.length === 0) {
+
+        document.getElementById("checkout-page").innerHTML = `
+
+            <div class="empty-checkout">
+
+                <h2>
+                    YOUR CART IS EMPTY
+                </h2>
+
+                <p>
+                    Add some products before checking out.
+                </p>
+
+                <a href="index.html">
+                    CONTINUE SHOPPING
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    orderItems.innerHTML = "";
+
+
+    cart.forEach(function(item) {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+
+        subtotal += itemTotal;
+
+
+        const itemHTML = `
+
+            <div class="order-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+                <div class="order-info">
+
+                    <h3>
+                        ${item.name}
+                    </h3>
+
+                    <p>
+                        Quantity: ${item.quantity}
+                    </p>
+
+                </div>
+
+                <div class="order-price">
+
+                    ₱${itemTotal.toLocaleString()}
+
+                </div>
+
+            </div>
+
+        `;
+
+
+        orderItems.innerHTML += itemHTML;
+
+    });
+
+
+    document.getElementById("subtotal").textContent =
+        "₱" + subtotal.toLocaleString();
+
+
+    document.getElementById("total").textContent =
+        "₱" + subtotal.toLocaleString();
+
+}
+
+
+/* =========================
+   PLACE ORDER
+========================= */
+
+document
+    .getElementById("checkout-form")
+    .addEventListener("submit", function(event) {
+
+        event.preventDefault();
+
+
+        const cart = getCart();
+
+
+        if (cart.length === 0) {
+
+            alert("Your cart is empty.");
+
+            return;
+
+        }
+
+
+        const fullName =
+            document.getElementById("full-name").value;
+
+        const email =
+            document.getElementById("email").value;
+
+        const phone =
+            document.getElementById("phone").value;
+
+        const address =
+            document.getElementById("address").value;
+
+        const city =
+            document.getElementById("city").value;
+
+        const province =
+            document.getElementById("province").value;
+
+        const payment =
+            document.getElementById("payment").value;
+
+
+        console.log("Customer:", fullName);
+
+        console.log("Email:", email);
+
+        console.log("Phone:", phone);
+
+        console.log("Address:", address);
+
+        console.log("City:", city);
+
+        console.log("Province:", province);
+
+        console.log("Payment:", payment);
+
+
+        /*
+            Clear cart after successful order
+        */
+
+        localStorage.removeItem("gainforgeCart");
+
+
+        /*
+            Hide checkout
+        */
+
+        document.getElementById("checkout-page").style.display =
+            "none";
+
+
+        /*
+            Show success message
+        */
+
+        document.getElementById("success-message").style.display =
+            "block";
+
+
+        /*
+            Update cart counter
+        */
+
+        updateCartCount();
+
+    });
+
+
+/* =========================
+   INITIALIZE
+========================= */
+
+displayOrder();
+
+updateCartCount();
+
+</script>
+
+
+</body>
+
+</html>

@@ -1,0 +1,560 @@
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    padding: 0;
+
+    font-family: Arial, sans-serif;
+
+    background:
+        linear-gradient(
+            rgba(0, 0, 0, 0.75),
+            rgba(0, 0, 0, 0.85)
+        ),
+        url("bg.png");
+
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+
+    color: white;
+}
+
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+    position: fixed;
+
+    top: 0;
+    left: 0;
+
+    width: 100%;
+
+    height: 75px;
+
+    background: rgba(5, 5, 5, 0.95);
+
+    display: flex;
+    align-items: center;
+
+    padding: 0 50px;
+
+    z-index: 1000;
+
+    border-bottom: 1px solid #222;
+}
+
+
+#logo {
+    width: 80px;
+}
+
+
+.nav-links {
+    margin-left: auto;
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 35px;
+}
+
+
+.nav-links a {
+    color: white;
+
+    text-decoration: none;
+
+    font-family: "Teko", sans-serif;
+
+    font-size: 22px;
+
+    font-weight: 500;
+
+    transition: 0.3s;
+}
+
+
+.nav-links a:hover {
+    color: #17c12a;
+}
+
+
+.cart {
+    color: white;
+
+    text-decoration: none;
+
+    font-family: "Teko", sans-serif;
+
+    font-size: 22px;
+}
+
+
+#cart-count {
+    display: inline-flex;
+
+    justify-content: center;
+    align-items: center;
+
+    min-width: 20px;
+    height: 20px;
+
+    padding: 2px 6px;
+
+    background: #17c12a;
+
+    color: black;
+
+    border-radius: 50%;
+
+    font-family: Arial, sans-serif;
+
+    font-size: 12px;
+
+    font-weight: bold;
+
+    vertical-align: middle;
+}
+
+
+/* =========================
+   CHECKOUT CONTAINER
+========================= */
+
+.checkout-container {
+
+    max-width: 1200px;
+
+    margin: 120px auto 60px;
+
+    padding: 20px;
+}
+
+
+.page-title {
+
+    font-family: "Teko", sans-serif;
+
+    font-size: 55px;
+
+    text-align: center;
+
+    margin-bottom: 35px;
+
+    letter-spacing: 2px;
+}
+
+
+/* =========================
+   CHECKOUT GRID
+========================= */
+
+.checkout-grid {
+
+    display: grid;
+
+    grid-template-columns: 1fr 400px;
+
+    gap: 30px;
+}
+
+
+/* =========================
+   BOX
+========================= */
+
+.checkout-box {
+
+    background: rgba(23, 23, 23, 0.95);
+
+    border: 1px solid #292929;
+
+    border-radius: 12px;
+
+    padding: 30px;
+
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.35);
+}
+
+
+.checkout-box h2 {
+
+    margin-top: 0;
+
+    margin-bottom: 25px;
+
+    font-family: "Teko", sans-serif;
+
+    font-size: 32px;
+
+    letter-spacing: 1px;
+}
+
+
+/* =========================
+   FORM
+========================= */
+
+.form-group {
+
+    margin-bottom: 20px;
+}
+
+
+.form-group label {
+
+    display: block;
+
+    margin-bottom: 8px;
+
+    font-size: 14px;
+
+    color: #ccc;
+}
+
+
+.form-group input,
+.form-group select,
+.form-group textarea {
+
+    width: 100%;
+
+    padding: 14px;
+
+    border: 1px solid #333;
+
+    border-radius: 6px;
+
+    background: #0d0d0d;
+
+    color: white;
+
+    font-size: 14px;
+
+    outline: none;
+}
+
+
+.form-group input:focus,
+.form-group select:focus,
+.form-group textarea:focus {
+
+    border-color: #17c12a;
+}
+
+
+.form-group textarea {
+
+    height: 100px;
+
+    resize: vertical;
+}
+
+
+/* =========================
+   ORDER ITEMS
+========================= */
+
+.order-item {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    padding: 15px 0;
+
+    border-bottom: 1px solid #292929;
+}
+
+
+.order-item img {
+
+    width: 70px;
+
+    height: 70px;
+
+    object-fit: cover;
+
+    border-radius: 8px;
+
+    background: #0d0d0d;
+}
+
+
+.order-info {
+
+    flex: 1;
+}
+
+
+.order-info h3 {
+
+    margin: 0 0 5px;
+
+    font-family: "Teko", sans-serif;
+
+    font-size: 22px;
+}
+
+
+.order-info p {
+
+    margin: 0;
+
+    color: #aaa;
+
+    font-size: 13px;
+}
+
+
+.order-price {
+
+    font-weight: bold;
+
+    color: #4f78d1;
+}
+
+
+/* =========================
+   TOTAL
+========================= */
+
+.summary-row {
+
+    display: flex;
+
+    justify-content: space-between;
+
+    margin-top: 18px;
+
+    font-size: 15px;
+}
+
+
+.summary-row.total {
+
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid #333;
+
+    font-size: 24px;
+
+    font-family: "Teko", sans-serif;
+}
+
+
+.total-price {
+
+    color: #17c12a;
+}
+
+
+/* =========================
+   PLACE ORDER BUTTON
+========================= */
+
+.place-order {
+
+    width: 100%;
+
+    margin-top: 25px;
+
+    padding: 15px;
+
+    border: none;
+
+    border-radius: 6px;
+
+    background: #17c12a;
+
+    color: black;
+
+    font-family: "Teko", sans-serif;
+
+    font-size: 25px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+}
+
+
+.place-order:hover {
+
+    background: #20e535;
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================
+   EMPTY CART
+========================= */
+
+.empty-checkout {
+
+    text-align: center;
+
+    padding: 100px 20px;
+}
+
+
+.empty-checkout h2 {
+
+    font-family: "Teko", sans-serif;
+
+    font-size: 40px;
+}
+
+
+.empty-checkout p {
+
+    color: #aaa;
+}
+
+
+.empty-checkout a {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    background: #17c12a;
+
+    color: black;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   SUCCESS MESSAGE
+========================= */
+
+.success-message {
+
+    display: none;
+
+    text-align: center;
+
+    max-width: 600px;
+
+    margin: 150px auto;
+
+    background: #171717;
+
+    border: 1px solid #292929;
+
+    border-radius: 12px;
+
+    padding: 50px 30px;
+}
+
+
+.success-message h1 {
+
+    font-family: "Teko", sans-serif;
+
+    font-size: 50px;
+
+    color: #17c12a;
+
+    margin: 0 0 15px;
+}
+
+
+.success-message p {
+
+    color: #ccc;
+
+    line-height: 1.6;
+}
+
+
+.success-message a {
+
+    display: inline-block;
+
+    margin-top: 20px;
+
+    padding: 12px 25px;
+
+    background: #17c12a;
+
+    color: black;
+
+    text-decoration: none;
+
+    border-radius: 5px;
+
+    font-weight: bold;
+}
+
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 800px) {
+
+    nav {
+
+        padding: 0 20px;
+    }
+
+
+    #logo {
+
+        width: 120px;
+    }
+
+
+    .nav-links {
+
+        gap: 15px;
+    }
+
+
+    .nav-links a {
+
+        font-size: 18px;
+    }
+
+
+    .checkout-grid {
+
+        grid-template-columns: 1fr;
+    }
+
+
+    .page-title {
+
+        font-size: 45px;
+    }
+
+
+    .checkout-box {
+
+        padding: 20px;
+    }
+
+}

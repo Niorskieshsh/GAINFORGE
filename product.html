@@ -1,0 +1,968 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&display=swap" rel="stylesheet">
+
+<title>Product | GAINFORGE</title>
+
+
+<link rel="stylesheet" href="css/product-style.css">
+
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <img src="logo2.png">
+
+    </a>
+
+
+    <div class="nav-right">
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="cart.html">
+            🛒 CART
+            <span id="cart-count">0</span>
+        </a>
+
+        <a href="login.html">
+            LOG IN
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     PRODUCT PAGE
+========================= -->
+
+<section class="product-page">
+
+    <div id="product-container">
+
+        <!-- JAVASCRIPT WILL LOAD PRODUCT -->
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+/* =====================================================
+   GAINFORGE PRODUCT DATABASE
+===================================================== */
+
+
+/* =========================
+   ALL PRODUCTS
+========================= */
+
+const products = {
+
+
+    /* =========================
+       WHEY PROTEIN
+    ========================= */
+
+    "whey-2kg": {
+
+        name: "Whey Protein 2KG",
+
+        price: 1499,
+
+        image: "images/product1.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A convenient whey protein supplement designed to support your daily protein intake and fitness goals.",
+
+        benefits: [
+
+            "Supports daily protein intake",
+
+            "Helps support muscle recovery",
+
+            "Convenient post-workout protein source",
+
+            "Suitable for active lifestyles"
+
+        ]
+
+    },
+
+
+    "whey-1kg": {
+
+        name: "Whey Protein 1KG",
+
+        price: 899,
+
+        image: "images/product1.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A convenient whey protein option for your everyday fitness routine and daily protein needs.",
+
+        benefits: [
+
+            "Supports daily protein intake",
+
+            "Convenient everyday protein source",
+
+            "Helps support workout recovery",
+
+            "Suitable for active lifestyles"
+
+        ]
+
+    },
+
+    "whey-100lb": {
+
+        name: "Whey Protein 100lb",
+
+        price: 899,
+
+        image: "images/product2.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A convenient whey protein option for your everyday fitness routine and daily protein needs.",
+
+        benefits: [
+
+            "Supports daily protein intake",
+
+            "Convenient everyday protein source",
+
+            "Helps support workout recovery",
+
+            "Suitable for active lifestyles"
+
+        ]
+
+    },
+
+    "whey-200lb": {
+
+        name: "Whey Protein 100lb",
+
+        price: 1999,
+
+        image: "images/product2.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A convenient whey protein option for your everyday fitness routine and daily protein needs.",
+
+        benefits: [
+
+            "Supports daily protein intake",
+
+            "Convenient everyday protein source",
+
+            "Helps support workout recovery",
+
+            "Suitable for active lifestyles"
+
+        ]
+
+    },
+
+    "whey-250lb": {
+
+        name: "Whey Protein 250LB",
+
+        price: 1999,
+
+        image: "images/product1.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A convenient whey protein option for your everyday fitness routine and daily protein needs.",
+
+        benefits: [
+
+            "Supports daily protein intake",
+
+            "Convenient everyday protein source",
+
+            "Helps support workout recovery",
+
+            "Suitable for active lifestyles"
+
+        ]
+
+    },
+
+
+    /* =========================
+       CREATINE
+    ========================= */
+
+    "creatine-300g": {
+
+        name: "Creatine Monohydrate 300G",
+
+        price: 799,
+
+        image: "images/product2.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "Creatine monohydrate designed to support strength, performance, and high-intensity training.",
+
+        benefits: [
+
+            "Supports strength training",
+
+            "Supports high-intensity exercise",
+
+            "Easy to mix",
+
+            "Suitable for active lifestyles"
+
+        ]
+
+    },
+
+    "creatine-600g": {
+
+        name: "Creatine Monohydrate 600G",
+
+        price: 1499,
+
+        image: "images/product2.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "Creatine monohydrate designed to support strength, performance, and high-intensity training.",
+
+        benefits: [
+
+            "Supports strength training",
+
+            "Supports high-intensity exercise",
+
+            "Easy to mix",
+
+            "Suitable for active lifestyles"
+
+        ]
+
+    },
+
+
+    /* =========================
+       PRE-WORKOUT
+    ========================= */
+
+    "preworkout-30servings": {
+
+        name: "Pre-Workout",
+
+        price: 999,
+
+        image: "images/product3.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A pre-workout supplement designed to complement your training routine before exercise.",
+
+        benefits: [
+
+            "Supports workout preparation",
+
+            "Convenient before training",
+
+            "Designed for active lifestyles",
+
+            "Easy to include in your routine"
+
+        ]
+
+    },
+
+    "preworkout-60servings": {
+
+        name: "Pre-Workout",
+
+        price: 1999,
+
+        image: "images/product3.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A pre-workout supplement designed to complement your training routine before exercise.",
+
+        benefits: [
+
+            "Supports workout preparation",
+
+            "Convenient before training",
+
+            "Designed for active lifestyles",
+
+            "Easy to include in your routine"
+
+        ]
+
+    },
+
+    
+    "preworkout-100servings": {
+
+        name: "Pre-Workout",
+
+        price: 2499,
+
+        image: "images/product3.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A pre-workout supplement designed to complement your training routine before exercise.",
+
+        benefits: [
+
+            "Supports workout preparation",
+
+            "Convenient before training",
+
+            "Designed for active lifestyles",
+
+            "Easy to include in your routine"
+
+        ]
+
+    },
+
+
+    /* =========================
+       VITAMINS
+    ========================= */
+
+    "multivitamins": {
+
+        name: "Multivitamins",
+
+        price: 599,
+
+        image: "images/product4.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A convenient multivitamin supplement designed to complement a balanced and active lifestyle.",
+
+        benefits: [
+
+            "Convenient daily supplement",
+
+            "Supports nutritional intake",
+
+            "Easy to include in your routine",
+
+            "Suitable for active lifestyles"
+
+        ]
+
+    },
+
+    
+    "multivitamins": {
+
+        name: "Multivitamins",
+
+        price: 599,
+
+        image: "images/product4.jpg",
+
+        rating: 5,
+
+        reviews: 0,
+
+        sold: 0,
+
+        description:
+            "A convenient multivitamin supplement designed to complement a balanced and active lifestyle.",
+
+        benefits: [
+
+            "Convenient daily supplement",
+
+            "Supports nutritional intake",
+
+            "Easy to include in your routine",
+
+            "Suitable for active lifestyles"
+
+        ]
+
+    }
+
+};
+
+
+
+/* =====================================================
+   GET PRODUCT ID FROM URL
+===================================================== */
+
+const urlParams =
+    new URLSearchParams(window.location.search);
+
+
+const productId =
+    urlParams.get("id");
+
+
+/* =====================================================
+   GET SELECTED PRODUCT
+===================================================== */
+
+const product =
+    products[productId];
+
+
+/* =====================================================
+   DISPLAY PRODUCT
+===================================================== */
+
+function displayProduct() {
+
+    const container =
+        document.getElementById(
+            "product-container"
+        );
+
+
+    /* PRODUCT DOES NOT EXIST */
+
+    if (!product) {
+
+        container.innerHTML = `
+
+            <div class="product-not-found">
+
+                <h1>
+                    PRODUCT NOT FOUND
+                </h1>
+
+                <p>
+                    Sorry, we couldn't find that product.
+                </p>
+
+                <a
+                    href="index.html"
+                    class="back-home"
+                >
+                    BACK TO HOME
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* CREATE STAR RATING */
+
+    let stars = "";
+
+
+    for (
+        let i = 1;
+        i <= 5;
+        i++
+    ) {
+
+        if (i <= product.rating) {
+
+            stars += "★";
+
+        }
+
+        else {
+
+            stars += "☆";
+
+        }
+
+    }
+
+
+    /* CREATE BENEFITS */
+
+    let benefitsHTML = "";
+
+
+    product.benefits.forEach(
+        function(benefit) {
+
+            benefitsHTML += `
+
+                <li>
+                    ${benefit}
+                </li>
+
+            `;
+
+        }
+    );
+
+
+    /* DISPLAY */
+
+    container.innerHTML = `
+
+        <div class="product-container">
+
+
+            <!-- IMAGE -->
+
+            <div class="product-image">
+
+                <img
+                    src="${product.image}"
+                    alt="${product.name}"
+                >
+
+            </div>
+
+
+            <!-- INFORMATION -->
+
+            <div class="product-info">
+
+
+                <h1>
+                    ${product.name}
+                </h1>
+
+
+                <div class="rating">
+
+                    <span class="stars">
+                        ${stars}
+                    </span>
+
+                    <span class="rating-number">
+                        ${product.rating}.0
+                    </span>
+
+                    <span class="sold">
+                        ${product.sold} sold
+                    </span>
+
+                </div>
+
+
+                <p class="price">
+
+                    ₱${product.price.toLocaleString()}
+
+                </p>
+
+
+                <p class="description">
+
+                    ${product.description}
+
+                </p>
+
+
+                <h2>
+                    WHAT IS IT FOR?
+                </h2>
+
+
+                <ul class="benefits">
+
+                    ${benefitsHTML}
+
+                </ul>
+
+
+                <p class="quantity-title">
+                    Quantity
+                </p>
+
+
+                <div class="quantity">
+
+                    <button
+                        onclick="decreaseQuantity()"
+                    >
+                        −
+                    </button>
+
+
+                    <span id="quantity">
+                        1
+                    </span>
+
+
+                    <button
+                        onclick="increaseQuantity()"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <div class="product-buttons">
+
+
+                    <button
+                        class="add-cart"
+                        onclick="addToCart()"
+                    >
+                        ADD TO CART
+                    </button>
+
+
+                    <button
+                        class="checkout-btn"
+                        onclick="checkoutNow()"
+                    >
+                        CHECK OUT
+                    </button>
+
+
+                </div>
+
+
+            </div>
+
+        </div>
+
+    `;
+
+}
+
+
+/* =====================================================
+   QUANTITY
+===================================================== */
+
+let quantity = 1;
+
+
+function increaseQuantity() {
+
+    quantity++;
+
+    document.getElementById(
+        "quantity"
+    ).textContent = quantity;
+
+}
+
+
+function decreaseQuantity() {
+
+    if (quantity > 1) {
+
+        quantity--;
+
+    }
+
+    document.getElementById(
+        "quantity"
+    ).textContent = quantity;
+
+}
+
+
+/* =====================================================
+   CART
+===================================================== */
+
+function getCart() {
+
+    return JSON.parse(
+        localStorage.getItem(
+            "gainforgeCart"
+        )
+    ) || [];
+
+}
+
+
+function saveCart(cart) {
+
+    localStorage.setItem(
+        "gainforgeCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =====================================================
+   UPDATE CART COUNT
+===================================================== */
+
+function updateCartCount() {
+
+    const cart = getCart();
+
+    let totalItems = 0;
+
+
+    cart.forEach(
+        function(item) {
+
+            totalItems += item.quantity;
+
+        }
+    );
+
+
+    document.getElementById(
+        "cart-count"
+    ).textContent = totalItems;
+
+}
+
+
+/* =====================================================
+   ADD TO CART
+===================================================== */
+
+function addToCart() {
+
+    let cart = getCart();
+
+
+    const existingProduct =
+        cart.find(
+            function(item) {
+
+                return item.name === product.name;
+
+            }
+        );
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity += quantity;
+
+    }
+
+    else {
+
+        cart.push({
+
+            id: productId,
+
+            name: product.name,
+
+            price: product.price,
+
+            image: product.image,
+
+            quantity: quantity
+
+        });
+
+    }
+
+
+    saveCart(cart);
+
+    updateCartCount();
+
+
+    /* BUTTON FEEDBACK */
+
+    const button =
+        document.querySelector(
+            ".add-cart"
+        );
+
+
+    button.textContent =
+        "ADDED ✓";
+
+
+    button.style.background =
+        "#17c12a";
+
+    button.style.color =
+        "#000";
+
+
+    setTimeout(
+        function() {
+
+            button.textContent =
+                "ADD TO CART";
+
+            button.style.background =
+                "";
+
+            button.style.color =
+                "";
+
+        },
+        1000
+    );
+
+}
+
+
+/* =====================================================
+   CHECKOUT NOW
+===================================================== */
+
+function checkoutNow() {
+
+    let cart = getCart();
+
+
+    const existingProduct =
+        cart.find(
+            function(item) {
+
+                return item.name === product.name;
+
+            }
+        );
+
+
+    if (existingProduct) {
+
+        existingProduct.quantity += quantity;
+
+    }
+
+    else {
+
+        cart.push({
+
+            id: productId,
+
+            name: product.name,
+
+            price: product.price,
+
+            image: product.image,
+
+            quantity: quantity
+
+        });
+
+    }
+
+
+    saveCart(cart);
+
+
+    window.location.href =
+        "checkout.html";
+
+}
+
+
+/* =====================================================
+   INITIALIZE
+===================================================== */
+
+displayProduct();
+
+updateCartCount();
+
+</script>
+
+
+</body>
+
+</html>

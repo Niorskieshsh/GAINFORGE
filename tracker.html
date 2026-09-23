@@ -1,0 +1,1062 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<title>Macro Tracker | GAINFORGE</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+<link rel="stylesheet" href="tracker-style.css">
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <img src="logo2.png" alt="GAINFORGE">
+
+    </a>
+
+
+    <div class="nav-right">
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="tracker.html" class="active">
+            TRACKER
+        </a>
+
+        <a href="cart.html">
+            🛒 CART
+            <span id="cart-count">0</span>
+        </a>
+
+        <a href="login.html">
+            LOG IN
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     TRACKER PAGE
+========================= -->
+
+<main class="tracker-page">
+
+<section class="calculator-section">
+
+    <div class="section-title">
+        <h1>MACRO CALCULATOR</h1>
+        <p>Calculate your estimated daily calorie and macro targets.</p>
+    </div>
+
+    <div class="calculator-box">
+
+        <form id="macro-form">
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="age">AGE</label>
+                    <input type="number" id="age" placeholder="e.g. 19" min="15" max="100" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="gender">GENDER</label>
+                    <select id="gender" required>
+                        <option value="">Select gender</option>
+                        <option value="male">Male</option>
+                        <option value="female">Female</option>
+                    </select>
+                </div>
+
+            </div>
+
+
+            <div class="form-row">
+
+                <div class="form-group">
+                    <label for="weight">WEIGHT (KG)</label>
+                    <input type="number" id="weight" placeholder="e.g. 65" min="30" max="300" step="0.1" required>
+                </div>
+
+                <div class="form-group">
+                    <label for="height">HEIGHT (CM)</label>
+                    <input type="number" id="height" placeholder="e.g. 170" min="100" max="250" step="0.1" required>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="activity">ACTIVITY LEVEL</label>
+
+                <select id="activity" required>
+
+                    <option value="">
+                        Select activity level
+                    </option>
+
+                    <option value="1.2">
+                        Sedentary — Little or no exercise
+                    </option>
+
+                    <option value="1.375">
+                        Lightly Active — Exercise 1–3 days/week
+                    </option>
+
+                    <option value="1.55">
+                        Moderately Active — Exercise 3–5 days/week
+                    </option>
+
+                    <option value="1.725">
+                        Very Active — Exercise 6–7 days/week
+                    </option>
+
+                    <option value="1.9">
+                        Extremely Active — Hard training / physical job
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label for="goal">FITNESS GOAL</label>
+
+                <select id="goal" required>
+
+                    <option value="">
+                        Select your goal
+                    </option>
+
+                    <option value="lose">
+                        Lose Weight
+                    </option>
+
+                    <option value="maintain">
+                        Maintain Weight
+                    </option>
+
+                    <option value="gain">
+                        Gain Weight / Muscle
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <button type="submit" class="calculate-btn">
+                CALCULATE MY MACROS
+            </button>
+
+        </form>
+
+    </div>
+
+
+    <!-- RESULTS -->
+
+    <div id="macro-results" class="macro-results">
+
+        <div class="results-title">
+            <h2>YOUR DAILY TARGETS</h2>
+            <p>Estimated values based on the information you entered.</p>
+        </div>
+
+
+        <div class="macro-cards">
+
+            <div class="macro-card calories-card">
+
+                <span class="macro-label">
+                    CALORIES
+                </span>
+
+                <strong id="calorie-target">
+                    0
+                </strong>
+
+                <small>
+                    kcal / day
+                </small>
+
+            </div>
+
+
+            <div class="macro-card">
+
+                <span class="macro-label">
+                    PROTEIN
+                </span>
+
+                <strong id="protein-target">
+                    0
+                </strong>
+
+                <small>
+                    grams / day
+                </small>
+
+            </div>
+
+
+            <div class="macro-card">
+
+                <span class="macro-label">
+                    CARBS
+                </span>
+
+                <strong id="carbs-target">
+                    0
+                </strong>
+
+                <small>
+                    grams / day
+                </small>
+
+            </div>
+
+
+            <div class="macro-card">
+
+                <span class="macro-label">
+                    FATS
+                </span>
+
+                <strong id="fat-target">
+                    0
+                </strong>
+
+                <small>
+                    grams / day
+                </small>
+
+            </div>
+
+        </div>
+
+
+        <div class="macro-note">
+
+            <strong>GAINFORGE NOTE</strong>
+
+            <p>
+                These numbers are estimates intended for general fitness
+                tracking. Individual nutrition needs can vary.
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+<!-- ADD FOOD -->
+
+<div class="food-section">
+
+    <div class="section-title">
+        <h2>ADD FOOD</h2>
+        <p>Enter the food and amount. GAINFORGE calculates the macros for you.</p>
+    </div>
+
+
+    <div class="food-form-box">
+
+        <form id="food-form">
+
+            <div class="food-input-row">
+
+                <div class="form-group">
+
+                    <label for="food-name">
+                        FOOD
+                    </label>
+
+                    <select id="food-name" required>
+
+                        <option value="">
+                            Select food
+                        </option>
+
+                        <option value="chicken">
+                            Chicken Breast
+                        </option>
+
+                        <option value="egg">
+                            Egg
+                        </option>
+
+                        <option value="rice">
+                            White Rice
+                        </option>
+
+                        <option value="oats">
+                            Oats
+                        </option>
+
+                        <option value="banana">
+                            Banana
+                        </option>
+
+                        <option value="beef">
+                            Lean Beef
+                        </option>
+
+                        <option value="tuna">
+                            Tuna
+                        </option>
+
+                        <option value="milk">
+                            Milk
+                        </option>
+
+                        <option value="bread">
+                            Bread
+                        </option>
+
+                        <option value="peanut-butter">
+                            Peanut Butter
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="form-group">
+
+                    <label for="food-grams">
+                        AMOUNT (GRAMS)
+                    </label>
+
+                    <input
+                        type="number"
+                        id="food-grams"
+                        placeholder="e.g. 200"
+                        min="1"
+                        max="5000"
+                        step="1"
+                        required
+                    >
+
+                </div>
+
+            </div>
+
+
+            <button
+                type="submit"
+                class="calculate-btn"
+            >
+                + ADD FOOD
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+
+<!-- TODAY'S FOOD -->
+
+<div class="food-log-section">
+
+    <div class="food-log-header">
+
+        <div>
+
+            <h2>TODAY'S FOOD</h2>
+
+            <p>
+                Your food intake for today.
+            </p>
+
+        </div>
+
+        <button
+            type="button"
+            id="clear-food"
+            class="clear-food-btn"
+        >
+            CLEAR ALL
+        </button>
+
+    </div>
+
+
+    <div id="food-list">
+
+        <div class="empty-food">
+            No food added yet.
+        </div>
+
+    </div>
+
+</div>
+
+
+
+
+</main>
+
+
+
+<!-- =========================
+     FOOTER
+========================= -->
+
+<footer>
+
+    <p>
+        © 2026 GAINFORGE. All Rights Reserved.
+    </p>
+
+</footer>
+
+
+
+<script>
+
+/* ================================
+   MACRO CALCULATOR
+================================ */
+
+const macroForm = document.getElementById("macro-form");
+
+const macroResults = document.getElementById("macro-results");
+
+const calorieTarget = document.getElementById("calorie-target");
+const proteinTarget = document.getElementById("protein-target");
+const carbsTarget = document.getElementById("carbs-target");
+const fatTarget = document.getElementById("fat-target");
+
+
+macroForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    /* GET USER INPUT */
+
+    const age = Number(
+        document.getElementById("age").value
+    );
+
+    const weight = Number(
+        document.getElementById("weight").value
+    );
+
+    const height = Number(
+        document.getElementById("height").value
+    );
+
+    const gender =
+        document.getElementById("gender").value;
+
+    const activity =
+        Number(document.getElementById("activity").value);
+
+    const goal =
+        document.getElementById("goal").value;
+
+
+    /* CALCULATE BMR */
+
+    let bmr;
+
+
+    if (gender === "male") {
+
+        bmr =
+            (10 * weight) +
+            (6.25 * height) -
+            (5 * age) +
+            5;
+
+    } else {
+
+        bmr =
+            (10 * weight) +
+            (6.25 * height) -
+            (5 * age) -
+            161;
+    }
+
+
+    /* CALCULATE TDEE */
+
+    let calories = bmr * activity;
+
+
+    /* ADJUST CALORIES BASED ON GOAL */
+
+    if (goal === "lose") {
+
+        calories = calories - 400;
+
+    } else if (goal === "gain") {
+
+        calories = calories + 300;
+    }
+
+
+    calories = Math.round(calories);
+
+
+    /* MACRO TARGETS */
+
+    /*
+       Protein:
+       approximately 1.8g per kg body weight
+    */
+
+    const protein =
+        Math.round(weight * 1.8);
+
+
+    /*
+       Fat:
+       approximately 25% of daily calories
+    */
+
+    const fat =
+        Math.round((calories * 0.25) / 9);
+
+
+    /*
+       Remaining calories go to carbohydrates
+    */
+
+    const proteinCalories =
+        protein * 4;
+
+    const fatCalories =
+        fat * 9;
+
+    const remainingCalories =
+        calories -
+        proteinCalories -
+        fatCalories;
+
+
+    const carbs =
+        Math.max(
+            0,
+            Math.round(remainingCalories / 4)
+        );
+
+
+    /* DISPLAY RESULTS */
+
+    calorieTarget.textContent =
+        calories.toLocaleString();
+
+    proteinTarget.textContent =
+        protein;
+
+    carbsTarget.textContent =
+        carbs;
+
+    fatTarget.textContent =
+        fat;
+
+
+    /* SHOW RESULTS */
+
+    macroResults.style.display = "block";
+
+
+    /* SCROLL TO RESULTS */
+
+    macroResults.scrollIntoView({
+        behavior: "smooth",
+        block: "start"
+    });
+
+});
+
+
+/* =================================
+   GAINFORGE FOOD DATABASE
+================================= */
+
+/*
+   Nutrition values are based on
+   approximately 100 grams of food.
+
+   calories = kcal
+   protein  = grams
+   carbs    = grams
+   fat      = grams
+*/
+
+const foodDatabase = {
+
+    chicken: {
+        name: "Chicken Breast",
+        calories: 165,
+        protein: 31,
+        carbs: 0,
+        fat: 3.6
+    },
+
+    egg: {
+        name: "Egg",
+        calories: 155,
+        protein: 13,
+        carbs: 1.1,
+        fat: 11
+    },
+
+    rice: {
+        name: "White Rice",
+        calories: 130,
+        protein: 2.7,
+        carbs: 28,
+        fat: 0.3
+    },
+
+    oats: {
+        name: "Oats",
+        calories: 389,
+        protein: 16.9,
+        carbs: 66.3,
+        fat: 6.9
+    },
+
+    banana: {
+        name: "Banana",
+        calories: 89,
+        protein: 1.1,
+        carbs: 22.8,
+        fat: 0.3
+    },
+
+    beef: {
+        name: "Lean Beef",
+        calories: 217,
+        protein: 26,
+        carbs: 0,
+        fat: 12
+    },
+
+    tuna: {
+        name: "Tuna",
+        calories: 132,
+        protein: 28,
+        carbs: 0,
+        fat: 1.3
+    },
+
+    milk: {
+        name: "Milk",
+        calories: 61,
+        protein: 3.2,
+        carbs: 4.8,
+        fat: 3.3
+    },
+
+    bread: {
+        name: "Bread",
+        calories: 265,
+        protein: 9
+        ,
+        carbs: 49,
+        fat: 3.2
+    },
+
+    "peanut-butter": {
+        name: "Peanut Butter",
+        calories: 588,
+        protein: 25,
+        carbs: 20,
+        fat: 50
+    }
+
+};
+
+
+/* =================================
+   FOOD STORAGE
+================================= */
+
+let foods =
+    JSON.parse(
+        localStorage.getItem("gainforgeFoods")
+    ) || [];
+
+
+/* =================================
+   FOOD FORM
+================================= */
+
+const foodForm =
+    document.getElementById("food-form");
+
+const foodList =
+    document.getElementById("food-list");
+
+const clearFood =
+    document.getElementById("clear-food");
+
+
+/* =================================
+   ADD FOOD
+================================= */
+
+foodForm.addEventListener("submit", function(event) {
+
+    event.preventDefault();
+
+
+    const foodId =
+        document.getElementById("food-name").value;
+
+    const grams =
+        Number(
+            document.getElementById("food-grams").value
+        );
+
+
+    if (!foodId || grams <= 0) {
+        return;
+    }
+
+
+    const food =
+        foodDatabase[foodId];
+
+
+    if (!food) {
+        return;
+    }
+
+
+    /*
+       Calculate nutrition based
+       on the amount entered.
+
+       Example:
+
+       100g chicken = 165 calories
+
+       200g chicken =
+       165 × 2 = 330 calories
+    */
+
+    const multiplier =
+        grams / 100;
+
+
+    const foodEntry = {
+
+        id: Date.now(),
+
+        name: food.name,
+
+        grams: grams,
+
+        calories:
+            food.calories * multiplier,
+
+        protein:
+            food.protein * multiplier,
+
+        carbs:
+            food.carbs * multiplier,
+
+        fat:
+            food.fat * multiplier
+
+    };
+
+
+    foods.push(foodEntry);
+
+
+    saveFoods();
+
+    displayFoods();
+
+    updateFoodTotals();
+
+
+    foodForm.reset();
+
+});
+
+
+/* =================================
+   SAVE FOOD
+================================= */
+
+function saveFoods() {
+
+    localStorage.setItem(
+        "gainforgeFoods",
+        JSON.stringify(foods)
+    );
+
+}
+
+
+/* =================================
+   DISPLAY FOOD
+================================= */
+
+function displayFoods() {
+
+    if (foods.length === 0) {
+
+        foodList.innerHTML = `
+            <div class="empty-food">
+                No food added yet.
+            </div>
+        `;
+
+        return;
+    }
+
+
+    foodList.innerHTML = "";
+
+
+    foods.forEach(function(food) {
+
+        const item =
+            document.createElement("div");
+
+        item.className = "food-item";
+
+
+        item.innerHTML = `
+
+            <div class="food-info">
+
+                <h3>
+                    ${food.name}
+                </h3>
+
+                <span>
+                    ${food.grams}g
+                </span>
+
+            </div>
+
+
+            <div class="food-macros">
+
+                <div>
+                    <strong>
+                        ${Math.round(food.calories)}
+                    </strong>
+                    <small>kcal</small>
+                </div>
+
+                <div>
+                    <strong>
+                        ${food.protein.toFixed(1)}g
+                    </strong>
+                    <small>protein</small>
+                </div>
+
+                <div>
+                    <strong>
+                        ${food.carbs.toFixed(1)}g
+                    </strong>
+                    <small>carbs</small>
+                </div>
+
+                <div>
+                    <strong>
+                        ${food.fat.toFixed(1)}g
+                    </strong>
+                    <small>fat</small>
+                </div>
+
+            </div>
+
+
+            <button
+                type="button"
+                class="remove-food"
+                onclick="removeFood(${food.id})"
+            >
+                ×
+            </button>
+
+        `;
+
+
+        foodList.appendChild(item);
+
+    });
+
+}
+
+
+/* =================================
+   REMOVE FOOD
+================================= */
+
+function removeFood(id) {
+
+    foods =
+        foods.filter(function(food) {
+
+            return food.id !== id;
+
+        });
+
+
+    saveFoods();
+
+    displayFoods();
+
+    updateFoodTotals();
+
+}
+
+
+/* =================================
+   CLEAR ALL FOOD
+================================= */
+
+clearFood.addEventListener(
+    "click",
+    function() {
+
+        if (foods.length === 0) {
+            return;
+        }
+
+
+        foods = [];
+
+
+        saveFoods();
+
+        displayFoods();
+
+        updateFoodTotals();
+
+    }
+);
+
+
+/* =================================
+   TOTAL DAILY FOOD
+================================= */
+
+function updateFoodTotals() {
+
+    let totalCalories = 0;
+    let totalProtein = 0;
+    let totalCarbs = 0;
+    let totalFat = 0;
+
+
+    foods.forEach(function(food) {
+
+        totalCalories += food.calories;
+
+        totalProtein += food.protein;
+
+        totalCarbs += food.carbs;
+
+        totalFat += food.fat;
+
+    });
+
+
+    /*
+       If you already have these
+       elements in your tracker,
+       they will automatically update.
+    */
+
+    const calorieConsumed =
+        document.getElementById("calorie-consumed");
+
+    const proteinConsumed =
+        document.getElementById("protein-consumed");
+
+    const carbsConsumed =
+        document.getElementById("carbs-consumed");
+
+    const fatConsumed =
+        document.getElementById("fat-consumed");
+
+
+    if (calorieConsumed) {
+        calorieConsumed.textContent =
+            Math.round(totalCalories);
+    }
+
+
+    if (proteinConsumed) {
+        proteinConsumed.textContent =
+            totalProtein.toFixed(1) + "g";
+    }
+
+
+    if (carbsConsumed) {
+        carbsConsumed.textContent =
+            totalCarbs.toFixed(1) + "g";
+    }
+
+
+    if (fatConsumed) {
+        fatConsumed.textContent =
+            totalFat.toFixed(1) + "g";
+    }
+
+}
+
+
+/* =================================
+   INITIALIZE
+================================= */
+
+displayFoods();
+
+updateFoodTotals();
+
+
+
+</script>
+
+
+</body>
+
+</html>

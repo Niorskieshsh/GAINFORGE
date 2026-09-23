@@ -1,0 +1,133 @@
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background: #0d0d0d;
+    color: white;
+}
+
+body::before {
+            content: "";
+            position: fixed;
+            top: 0;
+            left: 0;
+
+            width: 100%;
+            height: 100%;
+
+            background-image: 
+                linear-gradient(
+                    rgba(0, 0, 0, 0.65),
+                    rgba(0, 0, 0, 0.65)
+                ),
+                url("bg.png");
+
+            background-size: cover;
+            background-position: center;
+
+            z-index: -1;
+        }
+
+.navbar {
+    height: 75px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 50px;
+    background: #050505;
+}
+
+.logo img {
+    width: 80px;
+}
+
+.nav-right {
+
+    display: flex;
+
+    align-items: center;
+
+    gap: 25px;
+
+}
+
+.nav-right a {
+    color: white;
+    text-decoration: none;
+    font-family: 'Teko', sans-serif;
+    font-size: 18px;
+    letter-spacing: 1px;
+}
+
+.nav-right a:hover {
+
+    color: #17c12a;
+
+}
+
+
+.products-page {
+    padding: 120px 50px 80px;
+    text-align: center;
+}
+
+.products-page h1 {
+    font-family: 'Oswald', sans-serif;
+    font-size: 45px;
+    letter-spacing: 2px;
+    margin-bottom: 40px;
+}
+
+
+
+.products {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    max-width: 1100px;
+    margin: auto;
+}
+
+.product {
+    background: #171717;
+    border-radius: 15px;
+    padding: 20px;
+    text-align: left;
+    transition: 0.3s;
+}
+
+.product:hover {
+    transform: translateY(-5px);
+}
+
+.product img {
+    width: 100%;
+    height: 220px;
+    object-fit: cover;
+    border-radius: 10px;
+}
+
+.product h3 {
+    margin-top: 15px;
+    margin-bottom: 8px;
+}
+
+.price {
+    color: #4f78d1;
+    font-weight: bold;
+    margin-bottom: 15px;
+}
+
+.view-product {
+    display: block;
+    text-align: center;
+    padding: 10px;
+    background: #294d9c;
+    color: white;
+    text-decoration: none;
+    border-radius: 8px;
+}

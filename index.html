@@ -1,0 +1,889 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>GAINFORGE</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&display=swap" rel="stylesheet">
+
+
+    <link rel="stylesheet" href="index-style.css">
+
+
+</head>
+
+
+<body>
+
+
+    <div class="skip-bottom-container">
+            <a id="top" href="#btm" class="skip-bottom">
+            ↓ SKIP TO BOTTOM
+            </a>
+        </div>
+
+    <nav class="navbar">
+
+        <!-- LOGO -->
+
+        <div class="logo">
+            <img src="logo2.png">
+        </div>
+
+
+        <!-- RIGHT SIDE -->
+        <div class="nav-right">
+
+            <a href="#categories">
+                Categories
+            </a>
+
+            <a href="#products">
+                Products
+            </a>
+
+            <a href="cart.html" class="cart">
+                🛒 Cart <span id="cart-count">0</span>
+            </a>
+
+            <a href="login.html" class="login">
+                Login
+            </a>
+
+        </div>
+
+
+    </nav>
+
+    <!-- =========================
+         HERO
+    ========================== -->
+
+    <section class="hero">
+
+        <video class="hero-video" autoplay muted loop playsinline>
+            <source src="video1.mp4" type="video/mp4">
+        </video>
+
+        <div class="hero-overlay"></div>
+
+        <div class="hero-content">
+
+            <h1>BUILD YOUR STRENGTH.</h1>
+
+            <p>
+                Premium supplements for your fitness journey.
+            </p>
+
+            <a href="#products" class="shop-btn">
+                SHOP NOW
+            </a>
+
+        </div>
+
+    </section>
+
+
+
+    <!-- =========================
+         CATEGORIES
+    ========================== -->
+
+    <section class="categories" id="categories">
+
+    <h2>SHOP BY CATEGORY</h2>
+
+    <div class="category-grid">
+
+        <a href="whey.html" class="category-card">
+            <img src="images/whey.jpg" alt="Whey Protein">
+            <div class="category-name">
+                <h3>Whey Protein</h3>
+            </div>
+        </a>
+
+        <a href="creatine.html" class="category-card">
+            <img src="images/creatine.jpg" alt="Creatine">
+            <div class="category-name">
+                <h3>Creatine</h3>
+            </div>
+        </a>
+
+        <a href="preworkout.html" class="category-card">
+            <img src="images/preworkout.jpg" alt="Pre-Workout">
+            <div class="category-name">
+                <h3>Pre-Workout</h3>
+            </div>
+        </a>
+
+        <a href="vitamins.html" class="category-card">
+            <img src="images/vitamins.jpg" alt="Vitamins">
+            <div class="category-name">
+                <h3>Vitamins</h3>
+            </div>
+        </a>
+
+    </div>
+
+</section>
+
+
+    <!-- =========================
+         PRODUCTS
+    ========================== -->
+
+    <section class="section" id="products">
+
+        <h2>
+            FEATURED PRODUCTS
+        </h2>
+
+
+        <div class="products">
+
+
+            <div class="product">
+
+            <img src="images/product1.jpg">
+
+            <h3>
+                Whey Protein
+            </h3>
+
+            <p class="price">
+                ₱1,499
+            </p>
+
+            <button class="add-cart"
+                data-name="Whey Protein"
+                data-price="1499"
+                data-image="images/product1.jpg">
+
+                Add to Cart
+
+            </button>
+
+        </div>
+
+
+
+            <div class="product">
+
+                <img src="images/product2.jpg">
+
+                <h3>
+                    Creatine Monohydrate
+                </h3>
+
+                <p class="price">
+                    ₱799
+                </p>
+
+                <button class="add-cart"
+                    data-name="Creatine Monohydrate"
+                    data-price="799"
+                    data-image="images/product2.jpg">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+
+            <div class="product">
+
+                <img src="images/product3.jpg">
+
+                <h3>
+                    Pre-Workout
+                </h3>
+
+                <p class="price">
+                    ₱999
+                </p>
+
+                <button class="add-cart"
+                    data-name="Pre-Workout"
+                    data-price="999"
+                    data-image="images/product3.jpg">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+
+            <div class="product">
+
+                <img src="images/product4.jpg">
+
+                <h3>
+                    Multivitamins
+                </h3>
+
+                <p class="price">
+                    ₱599
+                </p>
+
+                <button class="add-cart"
+                    data-name="Multivitamins"
+                    data-price="599"
+                    data-image="images/product4.jpg">
+                    Add to Cart
+                </button>
+
+            </div>
+
+
+        </div>
+
+    </section>
+
+    <!--TABLE DESCRIPTION-->
+
+    <section class="protein-details">
+
+    <h2>GAINFORGE PRODUCT DETAILS</h2>
+
+    <p class="details-intro">
+        Choose the right protein for your fitness goals. 
+        Compare our protein options and find the supplement
+        that fits your training and nutrition needs.
+    </p>
+
+    <div class="table-container">
+
+        <table class="protein-table">
+
+            <caption>Whey Protein Product Details</caption>
+
+            <colgroup class="sidebar">
+                <col>
+            </colgroup>
+
+            <colgroup class="info">
+                <col>
+                <col class="stripe">
+            </colgroup>
+
+            <colgroup class="info">
+                <col>
+                <col class="stripe">
+            </colgroup>
+
+
+            <tbody>
+
+                <tr>
+                    <th></th>
+                    <th>Whey<br>Protein</th>
+                    <th>Isolate<br>Whey</th>
+                    <th>Mass<br>Gainer</th>
+                    <th>Plant<br>Protein</th>
+                    <th>Hydrolyzed<br>Whey</th>
+                </tr>
+
+                <tr>
+                    <th>Protein</th>
+                    <td>25g</td>
+                    <td>27g</td>
+                    <td>30g</td>
+                    <td>24g</td>
+                    <td>28g</td>
+                </tr>
+
+                <tr>
+                    <th>Calories</th>
+                    <td>120 kcal</td>
+                    <td>110 kcal</td>
+                    <td>350 kcal</td>
+                    <td>130 kcal</td>
+                    <td>115 kcal</td>
+                </tr>
+
+                <tr>
+                    <th>Servings</th>
+                    <td>30</td>
+                    <td>25</td>
+                    <td>20</td>
+                    <td>30</td>
+                    <td>25</td>
+                </tr>
+
+                <tr>
+                    <th>Flavor</th>
+                    <td>Chocolate</td>
+                    <td>Vanilla</td>
+                    <td>Chocolate</td>
+                    <td>Cookies &amp; Cream</td>
+                    <td>Strawberry</td>
+                </tr>
+
+                <tr>
+                    <th>Price</th>
+                    <td>₱1,499</td>
+                    <td>₱1,799</td>
+                    <td>₱1,699</td>
+                    <td>₱1,399</td>
+                    <td>₱1,899</td>
+                </tr>
+
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                        • Premium Supplements • Quality Tested • Fitness Focused • Prices Include Tax
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!--CREATINE TABLE-->
+
+<section class="protein-details">
+
+    <div class="table-container">
+
+        <table class="protein-table">
+
+            <caption>Creatine Product Details</caption>
+
+            <tbody>
+
+                <tr>
+                    <th></th>
+                    <th>Creatine<br>Monohydrate</th>
+                    <th>Creatine<br>HCL</th>
+                    <th>Micronized<br>Creatine</th>
+                    <th>Creatine<br>Blend</th>
+                    <th>Creatine<br>Capsules</th>
+                </tr>
+
+                <tr>
+                    <th>Serving</th>
+                    <td>5g</td>
+                    <td>3g</td>
+                    <td>5g</td>
+                    <td>5g</td>
+                    <td>3g</td>
+                </tr>
+
+                <tr>
+                    <th>Servings</th>
+                    <td>60</td>
+                    <td>40</td>
+                    <td>50</td>
+                    <td>30</td>
+                    <td>40</td>
+                </tr>
+
+                <tr>
+                    <th>Flavor</th>
+                    <td>Unflavored</td>
+                    <td>Fruit Punch</td>
+                    <td>Unflavored</td>
+                    <td>Blue Raspberry</td>
+                    <td>Unflavored</td>
+                </tr>
+
+                <tr>
+                    <th>Form</th>
+                    <td>Powder</td>
+                    <td>Powder</td>
+                    <td>Powder</td>
+                    <td>Powder</td>
+                    <td>Capsules</td>
+                </tr>
+
+                <tr>
+                    <th>Price</th>
+                    <td>₱899</td>
+                    <td>₱1,099</td>
+                    <td>₱949</td>
+                    <td>₱1,199</td>
+                    <td>₱999</td>
+                </tr>
+
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                        • Premium Creatine • Quality Tested • Training Focused • Prices Include Tax
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!--PRE WORKOUT TABLE-->
+
+<section class="protein-details">
+
+    <div class="table-container">
+
+        <table class="protein-table">
+
+            <caption>Pre-Workout Product Details</caption>
+
+
+            <tbody>
+
+                <tr>
+                    <th></th>
+                    <th>Pre-Workout<br>Basic</th>
+                    <th>Pre-Workout<br>Pro</th>
+                    <th>High Energy<br>Pre-Workout</th>
+                    <th>Stim-Free<br>Pre-Workout</th>
+                    <th>Pre-Workout<br>Ultimate</th>
+                </tr>
+
+                <tr>
+                    <th>Caffeine</th>
+                    <td>150mg</td>
+                    <td>200mg</td>
+                    <td>250mg</td>
+                    <td>0mg</td>
+                    <td>300mg</td>
+                </tr>
+
+                <tr>
+                    <th>Servings</th>
+                    <td>30</td>
+                    <td>25</td>
+                    <td>30</td>
+                    <td>25</td>
+                    <td>20</td>
+                </tr>
+
+                <tr>
+                    <th>Flavor</th>
+                    <td>Fruit Punch</td>
+                    <td>Blue Raspberry</td>
+                    <td>Watermelon</td>
+                    <td>Berry Blast</td>
+                    <td>Grape</td>
+                </tr>
+
+                <tr>
+                    <th>Form</th>
+                    <td>Powder</td>
+                    <td>Powder</td>
+                    <td>Powder</td>
+                    <td>Powder</td>
+                    <td>Powder</td>
+                </tr>
+
+                <tr>
+                    <th>Price</th>
+                    <td>₱999</td>
+                    <td>₱1,199</td>
+                    <td>₱1,299</td>
+                    <td>₱1,149</td>
+                    <td>₱1,399</td>
+                </tr>
+
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                        • Premium Pre-Workout • Quality Tested • Training Focused • Prices Include Tax
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+
+    </div>
+
+</section>
+
+<!--VITAMINS TABLE-->
+
+<section class="protein-details">
+
+    <div class="table-container">
+
+        <table class="protein-table">
+
+            <caption>Vitamin Product Details</caption>
+
+
+            <tbody>
+
+                <tr>
+                    <th></th>
+                    <th>Multivitamin</th>
+                    <th>Vitamin<br>D3</th>
+                    <th>Vitamin<br>C</th>
+                    <th>Magnesium</th>
+                    <th>Omega-3</th>
+                </tr>
+
+                <tr>
+                    <th>Serving</th>
+                    <td>1 tablet</td>
+                    <td>1 capsule</td>
+                    <td>1 tablet</td>
+                    <td>2 capsules</td>
+                    <td>2 softgels</td>
+                </tr>
+
+                <tr>
+                    <th>Servings</th>
+                    <td>60</td>
+                    <td>90</td>
+                    <td>60</td>
+                    <td>60</td>
+                    <td>45</td>
+                </tr>
+
+                <tr>
+                    <th>Form</th>
+                    <td>Tablet</td>
+                    <td>Capsule</td>
+                    <td>Tablet</td>
+                    <td>Capsule</td>
+                    <td>Softgel</td>
+                </tr>
+
+                <tr>
+                    <th>Type</th>
+                    <td>Daily Support</td>
+                    <td>Vitamin D</td>
+                    <td>Antioxidant</td>
+                    <td>Mineral</td>
+                    <td>Fish Oil</td>
+                </tr>
+
+                <tr>
+                    <th>Price</th>
+                    <td>₱749</td>
+                    <td>₱599</td>
+                    <td>₱499</td>
+                    <td>₱699</td>
+                    <td>₱899</td>
+                </tr>
+
+            </tbody>
+
+            <tfoot>
+                <tr>
+                    <td colspan="6">
+                        • Quality Supplements • Wellness Focused • Daily Support • Prices Include Tax
+                    </td>
+                </tr>
+            </tfoot>
+
+        </table>
+
+    </div>
+
+</section>
+
+
+
+    <script>
+
+    /* =========================
+    GAINFORGE CART SYSTEM
+    ========================= */
+
+
+    /* GET CART FROM LOCAL STORAGE */
+
+    function getCart() {
+
+        return JSON.parse(localStorage.getItem("gainforgeCart")) || [];
+
+    }
+
+
+    /* SAVE CART */
+
+    function saveCart(cart) {
+
+        localStorage.setItem(
+            "gainforgeCart",
+            JSON.stringify(cart)
+        );
+
+    }
+
+
+    /* UPDATE CART COUNTER */
+
+    function updateCartCount() {
+
+        const cart = getCart();
+
+        let totalItems = 0;
+
+        cart.forEach(function(item) {
+
+            totalItems += item.quantity;
+
+        });
+
+        const cartCount = document.getElementById("cart-count");
+
+        if (cartCount) {
+
+            cartCount.textContent = totalItems;
+
+        }
+
+    }
+
+
+    /* FLYING PRODUCT ANIMATION */
+
+    function flyToCart(button) {
+
+        const product = button.closest(".product");
+
+        const productImage =
+            product.querySelector("img");
+
+        const cart =
+            document.querySelector(".cart");
+
+        const image =
+            document.createElement("img");
+
+        image.src = productImage.src;
+
+        image.classList.add("fly-image");
+
+        document.body.appendChild(image);
+
+
+        /* PRODUCT IMAGE POSITION */
+
+        const imageRect =
+            productImage.getBoundingClientRect();
+
+        image.style.left =
+            imageRect.left + "px";
+
+        image.style.top =
+            imageRect.top + "px";
+
+
+        /* CART POSITION */
+
+        const cartRect =
+            cart.getBoundingClientRect();
+
+
+        /* START ANIMATION */
+
+        setTimeout(function() {
+
+            image.style.left =
+                (cartRect.left + cartRect.width / 2) + "px";
+
+            image.style.top =
+                (cartRect.top + cartRect.height / 2) + "px";
+
+            image.style.width = "20px";
+
+            image.style.height = "20px";
+
+            image.style.opacity = "0";
+
+        }, 50);
+
+
+        /* REMOVE IMAGE AFTER ANIMATION */
+
+        setTimeout(function() {
+
+            image.remove();
+
+        }, 800);
+
+    }
+
+
+    /* ADD PRODUCT TO CART */
+
+    function addToCart(button) {
+
+        const name =
+            button.dataset.name;
+
+        const price =
+            Number(button.dataset.price);
+
+        const image =
+            button.dataset.image;
+
+
+        let cart =
+            getCart();
+
+
+        /* CHECK IF PRODUCT ALREADY EXISTS */
+
+        const existingProduct =
+            cart.find(function(item) {
+
+                return item.name === name;
+
+            });
+
+
+        if (existingProduct) {
+
+            existingProduct.quantity++;
+
+        }
+
+        else {
+
+            cart.push({
+
+                name: name,
+
+                price: price,
+
+                image: image,
+
+                quantity: 1
+
+            });
+
+        }
+
+
+        /* SAVE */
+
+        saveCart(cart);
+
+
+        /* UPDATE NUMBER */
+
+        updateCartCount();
+
+
+        /* ANIMATION */
+
+        flyToCart(button);
+
+
+        /* BUTTON FEEDBACK */
+
+        const originalText =
+            button.textContent;
+
+        button.textContent =
+            "Added ✓";
+
+        button.style.background =
+            "#17c12a";
+
+        button.style.color =
+            "#000";
+
+
+        setTimeout(function() {
+
+            button.textContent =
+                originalText;
+
+            button.style.background =
+                "";
+
+            button.style.color =
+                "";
+
+        }, 1000);
+
+    }
+
+
+    /* CONNECT ALL ADD TO CART BUTTONS */
+
+    document.querySelectorAll(".add-cart")
+    .forEach(function(button) {
+
+        button.addEventListener(
+            "click",
+            function() {
+
+                addToCart(button);
+
+            }
+        );
+
+    });
+
+
+    /* LOAD CART COUNT */
+
+    updateCartCount();
+
+    </script>
+
+    <div class="skip-bottom-container">
+    <a id="btm" href="#top" class="back-top">
+        ↑ BACK TO TOP
+    </a>
+    </div>
+
+    <footer class="gainforge-footer">
+
+    <h3>CONTACT US ON</h3>
+
+    <div class="footer-social">
+
+        <!-- Facebook -->
+        <a href="https://www.facebook.com/profile.php?id=61585638816162" target="_blank">
+            <img src="images/facebook.png" alt="Facebook">
+        </a>
+
+        <!-- Instagram -->
+        <a href="https://www.instagram.com/gainforge.ph" target="_blank">
+            <img src="images/instagram.png" alt="Instagram">
+        </a>
+
+        <!-- TikTok -->
+        <a href="tiktok.com" target="_blank">
+            <img src="images/tiktok.png" alt="TikTok">
+        </a>
+
+        <!-- Email -->
+        <a href="juniormustera43@gmail.com" target="_blank">
+            <img src="images/email.png" alt="Email">
+        </a>
+
+    </div>
+
+    <p>© 2026 GAINFORGE. All Rights Reserved.</p>
+
+</footer>
+
+
+</body>
+
+</html>

@@ -1,0 +1,72 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Login</title>
+
+    <link rel="stylesheet" href="style.css">
+    
+</head>
+
+<body>
+
+    <!-- PHOTO BACKGROUND -->
+    <div class="background"></div>
+
+    <!-- COLOR OVERLAY -->
+    <div class="overlay"></div>
+
+    <!-- LOGIN -->
+    <div class="login-box">
+
+        <h1>Login</h1>
+
+        <input
+            type="text"
+            id="username"
+            placeholder="Username"
+        >
+
+        <input
+            type="password"
+            id="password"
+            placeholder="Password"
+        >
+
+        <button onclick="login()">Login</button>
+
+        <p id="message"></p>
+
+    </div>
+
+
+    <script>
+
+        function login() {
+
+            let username = document.getElementById("username").value;
+            let password = document.getElementById("password").value;
+
+            if (username === "admin" && password === "1234") {
+
+                window.location.href = "dashboard.html";
+
+            } else {
+
+                document.getElementById("message").innerText =
+                    "Invalid username or password.";
+
+                document.getElementById("message").style.color = "red";
+
+            }
+
+        }
+
+    </script>
+
+</body>
+</html>

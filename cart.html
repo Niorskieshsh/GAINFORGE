@@ -1,0 +1,430 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+<link href="https://fonts.googleapis.com/css2?family=Teko:wght@600;700&display=swap" rel="stylesheet">
+
+<title>Cart | GAINFORGE</title>
+
+<link rel="stylesheet" href="cart-style.css">
+
+
+
+</head>
+
+
+<body>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<nav class="navbar">
+
+    <a href="index.html" class="logo">
+
+        <img src="logo2.png">
+
+    </a>
+
+
+    <div class="nav-right">
+
+        <a href="index.html">
+            HOME
+        </a>
+
+        <a href="cart.html">
+            🛒 CART
+            <span id="cart-count">0</span>
+        </a>
+
+        <a href="login.html">
+            LOG IN
+        </a>
+
+    </div>
+
+</nav>
+
+
+
+<!-- =========================
+     CART
+========================= -->
+
+<section class="cart-page">
+
+    <h1>YOUR CART</h1>
+
+
+    <div id="cart-content">
+
+        <!-- JAVASCRIPT WILL INSERT PRODUCTS HERE -->
+
+    </div>
+
+</section>
+
+
+
+<script>
+
+/* =========================
+   GET CART
+========================= */
+
+function getCart() {
+
+    return JSON.parse(
+        localStorage.getItem("gainforgeCart")
+    ) || [];
+
+}
+
+
+/* =========================
+   SAVE CART
+========================= */
+
+function saveCart(cart) {
+
+    localStorage.setItem(
+        "gainforgeCart",
+        JSON.stringify(cart)
+    );
+
+}
+
+
+/* =========================
+   UPDATE CART COUNT
+========================= */
+
+function updateCartCount() {
+
+    const cart = getCart();
+
+    let totalItems = 0;
+
+    cart.forEach(function(item) {
+
+        totalItems += item.quantity;
+
+    });
+
+    document.getElementById(
+        "cart-count"
+    ).textContent = totalItems;
+
+}
+
+
+/* =========================
+   DISPLAY CART
+========================= */
+
+function displayCart() {
+
+    const cart = getCart();
+
+    const cartContent =
+        document.getElementById("cart-content");
+
+
+    /* EMPTY CART */
+
+    if (cart.length === 0) {
+
+        cartContent.innerHTML = `
+
+            <div class="empty-cart">
+
+                <h2>
+                    YOUR CART IS EMPTY
+                </h2>
+
+                <p>
+                    You haven't added any products yet.
+                </p>
+
+                <a
+                    href="index.html#products"
+                    class="continue-shopping"
+                >
+                    CONTINUE SHOPPING
+                </a>
+
+            </div>
+
+        `;
+
+        return;
+
+    }
+
+
+    /* CALCULATE SUBTOTAL */
+
+    let subtotal = 0;
+
+    cart.forEach(function(item) {
+
+        subtotal +=
+            item.price * item.quantity;
+
+    });
+
+
+    /* CART HTML */
+
+    let itemsHTML = "";
+
+
+    cart.forEach(function(item, index) {
+
+        const itemTotal =
+            item.price * item.quantity;
+
+
+        itemsHTML += `
+
+            <div class="cart-item">
+
+                <img
+                    src="${item.image}"
+                    alt="${item.name}"
+                >
+
+
+                <div class="item-info">
+
+                    <h3>
+                        ${item.name}
+                    </h3>
+
+                    <p class="item-price">
+
+                        ₱${item.price.toLocaleString()}
+
+                    </p>
+
+                </div>
+
+
+                <div class="quantity">
+
+                    <button
+                        onclick="decreaseQuantity(${index})"
+                    >
+                        −
+                    </button>
+
+
+                    <span>
+                        ${item.quantity}
+                    </span>
+
+
+                    <button
+                        onclick="increaseQuantity(${index})"
+                    >
+                        +
+                    </button>
+
+                </div>
+
+
+                <strong>
+
+                    ₱${itemTotal.toLocaleString()}
+
+                </strong>
+
+
+                <button
+                    class="remove"
+                    onclick="removeItem(${index})"
+                >
+                    Remove
+                </button>
+
+            </div>
+
+        `;
+
+    });
+
+
+    /* COMPLETE CART */
+
+    cartContent.innerHTML = `
+
+        <div class="cart-container">
+
+
+            <div class="cart-items">
+
+                ${itemsHTML}
+
+            </div>
+
+
+            <div class="summary">
+
+                <h2>
+                    ORDER SUMMARY
+                </h2>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Subtotal
+                    </span>
+
+                    <span>
+                        ₱${subtotal.toLocaleString()}
+                    </span>
+
+                </div>
+
+
+                <div class="summary-row">
+
+                    <span>
+                        Shipping
+                    </span>
+
+                    <span>
+                        FREE
+                    </span>
+
+                </div>
+
+
+                <div class="total">
+
+                    <span>
+                        Total
+                    </span>
+
+                    <span class="total-price">
+
+                        ₱${subtotal.toLocaleString()}
+
+                    </span>
+
+                </div>
+
+
+                <a
+                    href="checkout.html"
+                    class="checkout"
+                >
+                    PROCEED TO CHECKOUT
+                </a>
+
+            </div>
+
+
+        </div>
+
+    `;
+
+}
+
+
+/* =========================
+   INCREASE
+========================= */
+
+function increaseQuantity(index) {
+
+    const cart = getCart();
+
+    cart[index].quantity++;
+
+    saveCart(cart);
+
+    displayCart();
+
+    updateCartCount();
+
+}
+
+
+/* =========================
+   DECREASE
+========================= */
+
+function decreaseQuantity(index) {
+
+    const cart = getCart();
+
+
+    if (cart[index].quantity > 1) {
+
+        cart[index].quantity--;
+
+    }
+
+    else {
+
+        cart.splice(index, 1);
+
+    }
+
+
+    saveCart(cart);
+
+    displayCart();
+
+    updateCartCount();
+
+}
+
+
+/* =========================
+   REMOVE
+========================= */
+
+function removeItem(index) {
+
+    const cart = getCart();
+
+    cart.splice(index, 1);
+
+    saveCart(cart);
+
+    displayCart();
+
+    updateCartCount();
+
+}
+
+
+/* =========================
+   LOAD CART
+========================= */
+
+displayCart();
+
+updateCartCount();
+
+</script>
+
+
+</body>
+
+</html>
+
